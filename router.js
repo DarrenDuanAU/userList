@@ -19,9 +19,26 @@ router.get('/api/users', (req, res) => {
 });
 
 // post user    /api/user
-
+router.post('/api/user', (req, res) => {
+  const newUser = req.body;
+  console.log('newUser', newUser);
+  if(newUser){
+    users.push(newUser);
+    res.send({
+      msg: 'post user succeed',
+      data: users
+    })
+  } else {
+    res.status(400).send("user is required");
+  }
+})
 
 //delete users    /api/delete
-
+router.delete('/api/delete', (req, res) => {
+  users = []
+  res.send({
+    msg: 'delete user succeed'
+  });
+});
 
 module.exports = router;
