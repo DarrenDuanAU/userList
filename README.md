@@ -9,14 +9,14 @@ Tech Stack:
 - frontend: HTML, CSS, JavaScript
 - backend: express
 
-## Before Started
+## Before Start
 
 ```shell
 npm -init
 npm i cors express body-parser
 npm i nodemon -D
 ```
-## Run the backend 
+## Run The Backend 
 
 ```shell
 npx nodemon index.js
