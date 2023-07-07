@@ -11,7 +11,7 @@ let users = [
 //create APIs
 
 //get user list   /api/users
-router.get('/api/users', (req, res) => {
+router.get('/users', (req, res) => {
   res.send({
     msg: "get user succeed",
     data: users,
@@ -19,7 +19,7 @@ router.get('/api/users', (req, res) => {
 });
 
 // post user    /api/user
-router.post('/api/user', (req, res) => {
+router.post('/user', (req, res) => {
   const newUser = req.body;
   console.log('newUser', newUser);
   if(newUser){
@@ -34,7 +34,7 @@ router.post('/api/user', (req, res) => {
 })
 
 //delete users    /api/delete
-router.delete('/api/delete', (req, res) => {
+router.delete('/delete', (req, res) => {
   users = []
   res.send({
     msg: 'delete user succeed'
