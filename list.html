@@ -13,17 +13,16 @@
     <h3>User List</h3>
     <div class="user_form">
       <label for="name">name</label>
-      <input type="text" id="name" value="">
+      <input type="text" id="name" value="" autocomplete="off">
       <label for="age">age</label>
-      <input type="text" id="age" value="">
+      <input type="text" id="age" value="" autocapitalize="off">
     </div>
     <div class="btn_group">
       <button onclick="getList()">get list</button>
-      <button onclick="addList()">add user</button>
+      <button onclick="postUser()">add user</button>
       <button onclick="deleteList()">clear list</button>
     </div>
     <ul id="user_list">
-      <li>hello</li>
     </ul>
     
   </div>

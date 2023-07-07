@@ -24,6 +24,7 @@ const getList = () => {
       li.innerHTML = `${user.name} ${user.age}`;
       document.getElementById("user_list").appendChild(li);
     })
+    if (users.length === 0 ) alert('no users in the list');
   })
   .catch((err) => {console.log("err",err)})
 }
@@ -46,20 +47,21 @@ const deleteList = () => {
 
 }
 
-const addList = () => {
+const postUser = () => {
   const url = BACKEND_URL + "/user";
-  const name = document.getElementById("name").value;
-  const age = document.getElementById("age").value;
+  const nameValue = document.getElementById("name").value;
+  const ageValue = document.getElementById("age").value;
+  if (!nameValue || !ageValue) return;
   const load = {
-    name: name,
-    age: age
+    name: nameValue,
+    age: ageValue
   }
   axios
     .post(url,load)
     .then((res) => {
-      const users = res.data.data;
+      const updatedList = res.data.data;
       clearList();
-      users.map((user) => {
+      updatedList.map((user) => {
         const li = document.createElement('li');
         li.innerHTML = `${user.name} ${user.age}`
         document.getElementById("user_list").appendChild(li)
@@ -68,5 +70,7 @@ const addList = () => {
     .catch((err) => {
       console.log("err",err)
     })
+  document.getElementById("name").value = ""
+  document.getElementById("age").value = ""
 
 }
