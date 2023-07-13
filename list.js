@@ -51,7 +51,14 @@ const postUser = () => {
   const url = BACKEND_URL + "/user";
   const nameValue = document.getElementById("name").value;
   const ageValue = document.getElementById("age").value;
-  if (!nameValue || !ageValue) return;
+  if (!nameValue || !ageValue) {
+    console.log('not valid')
+    document.getElementById('message').innerHTML = "no valid name or age" 
+    setTimeout(() => {
+      document.getElementById('message').innerHTML = "" 
+    },2000)
+    return;
+  }
   const load = {
     name: nameValue,
     age: ageValue
